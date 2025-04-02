@@ -6,26 +6,30 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class Program
+    internal class Program                   //sum of array elements
     {
-            static int FactorialFind(int num)     //Factorial of given number
+        static int Sum(int[] a, int len)
+        {
+            int total = 0;
+            for (int i = 0; i < len; i++)
             {
-                int factorial = 1;
-                for (int i = num; i >= 1; i--)
-                {
-                    factorial = factorial * i;
-                }
-
-                return factorial;
+                total += a[i];
             }
-        
+            return total;
+        }
+
         static void Main(string[] args)
-        {                                                
-            Console.Write("Enter your number : ");
-            int num=int.Parse(Console.ReadLine());
-            
-            int fact = FactorialFind(num);
-            Console.WriteLine($"The factorial of {num} is {fact}");
+        {
+            int[] a = new int[5];
+            int len = a.Length;
+            //Console.WriteLine(len);
+            for (int i = 0; i < len; i++)
+            {
+                Console.Write($"Enter element no {i} :");
+                a[i] = int.Parse(Console.ReadLine());
+            }
+            //Console.WriteLine(string.Join(",",a));    
+            Console.WriteLine($"Sum of array elements:{Sum(a, len)}");
         }
     }
 }
