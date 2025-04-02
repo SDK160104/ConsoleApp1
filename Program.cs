@@ -6,30 +6,28 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class Program                   //sum of array elements
+    internal class Program                   //find the spaces of the given string
     {
-        static int Sum(int[] a, int len)
+        public static int Space(string s)
         {
-            int total = 0;
-            for (int i = 0; i < len; i++)
+            int spc = 0;
+            for(int i = 0; i < s.Length; i++)
             {
-                total += a[i];
+                string s1 = s.Substring(i, 1);
+                if(s1==" ")
+                {
+                    spc++;
+                }
             }
-            return total;
+           return spc;
         }
 
         static void Main(string[] args)
         {
-            int[] a = new int[5];
-            int len = a.Length;
-            //Console.WriteLine(len);
-            for (int i = 0; i < len; i++)
-            {
-                Console.Write($"Enter element no {i} :");
-                a[i] = int.Parse(Console.ReadLine());
-            }
-            //Console.WriteLine(string.Join(",",a));    
-            Console.WriteLine($"Sum of array elements:{Sum(a, len)}");
+            Console.WriteLine("Enter your String :");
+            string s = Console.ReadLine();
+            int num = Space(s);
+            Console.WriteLine($"the {s} have {num} spaces");
         }
     }
 }
